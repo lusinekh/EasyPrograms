@@ -106,6 +106,67 @@ namespace ConsoleApplication8
 
 
 
+        public static void Rotatate180(ConsoleColor[,] a)
+        {
+
+            FilColorMatrx(a);
+            var size = a.GetLength(0);
+            var divsize = a.GetLength(0) / 2;
+            for (int i = 0; i < a.GetLength(0); i++)
+
+            {
+                for (int j = 0; j < a.GetLength(1); j++)
+                {
+                    if (((j > 1 && j < a.GetLength(0) - 2) && ((i == 0) || (i == 9))) || ((j == 1 || j == (size - 2)) && ((i == 1) || (i == 8))) ||
+                       ((j == 0 || j == (size - 1)  ) && i == 2) ||
+
+                        ((j == 0 || j == (size - 1)) && (((i == 3)) || (i == 5) || (i == 6) || (i == 7))) || (((j == 0) || (j == size - 1) || (j == divsize - 1)
+                        || (j == divsize)) && (i == 4)) || ((j == 0 || j == (size - 1) ) && (i == 3))  ||((j==(divsize-2)||(j==size-3) || (j == size - 4)) &&(i==7))
+
+                        ||((j== size - 4) &&(i==6))
+
+                        )
+
+                    {
+                        a[i, j] = ConsoleColor.Green;
+                        Console.BackgroundColor = a[i, j];
+                        Console.Write("  ");
+
+                    }
+
+                    //else
+                    //{
+                    //    Console.BackgroundColor = a[i, j];
+
+                    //    Console.Write("  ");
+
+
+                    //}
+
+                }
+
+
+                Console.WriteLine();
+            }
+            Console.ResetColor();
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public static void RotatateRight(ConsoleColor[,] a)
         {
@@ -134,7 +195,7 @@ namespace ConsoleApplication8
 
                     else
                     {
-                        Console.BackgroundColor = a[i, j];
+                        Console.BackgroundColor = ConsoleColor.Black;
 
                         Console.Write("  ");
 
@@ -209,7 +270,9 @@ namespace ConsoleApplication8
             RotatateLeft(color);
             
             RotatateRight(color);
-           
+            Rotatate180(color);
+
+
 
 
         }
